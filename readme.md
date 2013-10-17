@@ -145,6 +145,40 @@ Gruntplugins
 
 		grunt.registerTask('default', ['uglify']);
 
+### grunt-contrib-concat
+
+1. Installation and loading
+
+		npm install grunt-contrib-concat --save-dev
+
+	Load the plugin that provides the *grunt-contrib-concat* task.
+
+		grunt.loadNpmTasks('grunt-contrib-concat');
+
+2. Define concat task
+
+	Concatenating with a custom separator
+
+		concat: {
+    		options: {
+      			separator: ';'
+    		}
+    		,js: {
+      			src: ['js/script1.js', 'js/script2.js', 'js/script3.js'],
+      			dest: 'dist/script.js'
+    		}
+    		,css: {
+      			src: ['css/style1.css', 'css/style2.css', 'css/style3.css'],
+      			dest: 'dist/script.css'
+    		}
+  		}
+
+	More format examples on <a href="https://npmjs.org/package/grunt-contrib-concat" title="grunt-contrib-concat" alt="grunt-contrib-concat">npmjs.org</a>.
+
+3. Register and run concat task
+
+		grunt.registerTask('default', ['concat']);
+
 
 Authors and contributors
 ------------------------
