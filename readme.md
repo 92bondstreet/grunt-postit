@@ -118,7 +118,7 @@ Gruntplugins
 
 2. Define cleaning task
 
-	I use the basic compression: uglify
+	Basic compression to (only) uglify
 
 		uglify: {
     		js: {
@@ -129,7 +129,7 @@ Gruntplugins
       		}
     	}
 
-    I use the basic compression: uglify + concat
+    Basic compression to uglify AND concat
 
 		uglify: {
     		js: {
@@ -178,6 +178,44 @@ Gruntplugins
 3. Register and run concat task
 
 		grunt.registerTask('default', ['concat']);
+
+### grunt-contrib-copy
+
+1. Installation and loading
+
+		npm install grunt-contrib-copy --save-dev
+
+	Load the plugin that provides the *grunt-contrib-copy* task.
+
+		grunt.loadNpmTasks('grunt-contrib-copy');
+
+2. Define copy task
+
+	Copy files AND sub-directories
+
+		copy: {
+    		production: {
+			    files: [			      
+			       {expand: true, cwd: 'dev/js/', src: ['**'], dest: js/'}	      
+			    ]
+			}
+  		}
+
+  	Copy only first-level files
+
+		copy: {
+    		production: {
+			    files: [			      
+			       {expand: true, cwd: 'dev/css/', src: ['*'], dest: css/', filter: 'isFile'}	      
+			    ]
+			}
+  		}
+
+	More format examples on <a href="https://npmjs.org/package/grunt-contrib-copy" title="grunt-contrib-copy" alt="grunt-contrib-copy">npmjs.org</a>.
+
+3. Register and run copy task
+
+		grunt.registerTask('default', ['copy']);
 
 
 Authors and contributors
